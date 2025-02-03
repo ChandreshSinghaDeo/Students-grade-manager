@@ -1,0 +1,53 @@
+Students={}
+
+while True:
+    print("\n Students grade manager")
+    print("1. Add Student")
+    print("2. Update Grades")
+    print("3. View Student Details")
+    print("4. Display Summmary Report")
+    print("5. Exit")
+
+    Choice = input("Enter your Choice: ")
+
+    if Choice == "1":
+        name=input("Enter Student Name: ")
+        if name in Students:
+            print("Student already exists!")
+        else:
+            grades =input("Enter grades separated by spaces: ").split()
+            grades = list(map(float, grades))
+            Students[name]= grades
+            print(f"Added grades from {name} to {grades}")
+
+    elif Choice =="2":
+        name=input(("Enter the name to update: "))
+        if name in Students:
+            grades=input("Enter grades separated by spaces: ").split()
+            grades = list(map(float, grades))
+            Students[name]= grades
+            print(f"Added grades from {name} to {grades}")
+        else:
+            print("Students not found!")
+
+    elif Choice == "3":
+        name = input("Enter student name ")
+        if name in Students:
+            print(f"Added grades from {name} to {grades}")
+        else:
+            print("Students not found!")
+
+    elif Choice =="4":
+        print("\nSummary Report")
+        for name,grades in Students.items():
+            average = sum(grades)/ len(grades) if grades else 0
+            print(f"Student:{name},grades: {grades}, Average: {average:.2f}")
+
+    elif Choice == "5":  # Exit
+        print("Exiting the program. Goodbye!")
+        break
+
+    else:
+        print("Invalid choice! Please try again.")
+
+        
